@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<style>
+    caption{margin: 50px 0;}
+   table{width:50%;border:1px solid #000;margin:0 auto;border-spacing: 0;border-collapse:collapse;text-align: center;}
+   button{padding:5px;width: 100px;}
+   .btn_add{position: absolute;left:80%;top:60%;}
+   .btn_del{position: absolute;left:86%;top:60%;}
+    td{border:1px solid #000;height: 40px;}
+    thead{background: #8977ad;}
+    
+   *{margin: 0;padding: 0;}
+   
+</style>
+<body>
+
+   <div id= "app">
+        <table>
+            <caption>대우학교1반성적표</caption>
+            <colgroup>
+                <col width="10%">
+                
+                </col>
+                <col width="10%">
+            
+                </col>
+                <col width="10%">
+            
+                </col>
+                <col width="10%">
+            
+                </col>
+                <col width="10%">
+            
+                </col>
+                <col width="10%">
+            
+                </col>
+                <col width="10%">
+            
+                </col>
+                <col width="10%">
+            
+                </col>
+                <col width="10%">
+            
+                </col>
+                
+            </colgroup>
+            <thead>
+                <td>번호</td>
+                <td>이름</td>
+                <td>성별</td>
+                <td>국어</td>
+                <td>국사</td>
+                <td>수학</td>
+                <td>영어</td>
+                <td>화학</td>
+                
+            </thead>
+            <tbody>
+                <tr v-for="(stu,index) in dw" :key="index">
+                    <td>{{stu.num}}</td>
+                    <td>{{stu.name}}</td>
+                    <td>{{stu.sex}}</td>
+                    <td>{{stu.leg}}</td>
+                    <td >{{stu.his}}</td>
+                    <td>{{stu.mat}}</td>
+                    <td>{{stu.eng}}</td>
+                    <td>{{stu.sci}}</td>
+                    
+                </tr>
+                
+            </tbody>
+           
+        </table>
+        <button type="button" @click="dataDw()" class="btn_add">add</button>
+        <button type="button" @click="popData()" class="btn_del">del</button>
+   </div>
+
+    
+    
+    
+        
+        
+       
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                dw:[
+               
+                 {num:1,name:'이인포',sex:'남자',leg:98,his:85,mat:100,eng:75,sci:70},
+                {num:2,name:'손포아',sex:'남자',leg:100,his:98,mat:60,eng:55,sci:50},
+                {num:3,name:'김모포',sex:'남자',leg:100,his:91,mat:95,eng:54,sci:55},
+                {num:4,name:'김아아',sex:'여자',leg:95,his:94,mat:94,eng:89,sci:56},
+                {num:5,name:'인포모',sex:'여자',leg:99,his:88,mat:93,eng:97,sci:54},
+                {num:6,name:'인포아',sex:'남자',leg:96,his:84,mat:95,eng:95,sci:53},
+                {num:7,name:'모아인',sex:'여자',leg:99,his:90,mat:98,eng:70,sci:52},
+                {num:8,name:'정포모',sex:'여자',leg:99,his:93,mat:97,eng:88,sci:78},
+                {num:9,name:'이포모',sex:'남자',leg:83,his:85,mat:82,eng:83,sci:84}
+
+
+                ]
+
+            },
+            methods:{
+                dataDw(){
+                    this.dw.push({num:10,name:'권혁천',sex:'남자',leg:100,his:82,mat:100,eng:65,sci:77})
+
+
+                },
+                popData(){
+                this.dw.pop();
+
+
+            }
+
+        }
+        })
+    </script>
+</body>
+</html>
